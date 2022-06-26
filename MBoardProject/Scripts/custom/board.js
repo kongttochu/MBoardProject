@@ -26,9 +26,20 @@ let init = function () {
         login.setLoginInfo(_login.USERID, _login.USERNM);
     }
     login.init();
+
+    header.title = _title;
+    header.init();
 }
 
-
+let header = {
+    title: "",
+    init: function () {
+        this.setTitleView(this.title);
+    },
+    setTitleView: function (title) {
+        $(".header_box>h2").val(title);
+    }
+}
 
 let login = {
     userid: "",
