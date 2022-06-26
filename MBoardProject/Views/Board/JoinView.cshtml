@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "JoinView";
+}
+
+
+<link href="~/Content/custom/join.css" rel="stylesheet" />
+<script src="~/Scripts/custom/common.js"></script>
+<script src="~/Scripts/custom/join.js"></script>
+
+<script>
+
+</script>
+
+<div id="wrap">
+    <div class="header_box">
+        <h2>Join</h2>
+    </div>
+    <div class="join_box">
+        <form id="form1" action="/Board/UserJoin" enctype="multipart/form-data" method="post">
+            <input type="text" name="USERNM" class="name_window" placeholder="사용자이름">
+            <input type="text" name="USERID" class="id_window" placeholder="아이디">
+            <input type="password" name="USERPW" class="pw_window" placeholder="비밀번호">
+        </form>
+        <div class="join_btn">가입</div>
+    </div>
+</div>
+

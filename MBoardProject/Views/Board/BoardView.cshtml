@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "BoardView";
+}
+
+<link href="~/Content/custom/board.css" rel="stylesheet" />
+<script>
+    let _login = JSON.parse('@Html.Raw(ViewBag.Login)');
+
+</script>
+<script src="~/Scripts/custom/common.js"></script>
+<script src="~/Scripts/custom/board.js"></script>
+
+<div id="wrap">
+    <div class="info_box">
+        <div class="login_box">
+            <form id="form1" action="/Board/UserLogin" enctype="multipart/form-data" method="post">
+                <input type="text" name="USERID" class="id_window" placeholder="아이디">
+                <input type="password" name="USERPW" class="pw_window" placeholder="비밀번호">
+            </form>
+            <div class="login_btn custom_btn ">로그인</div>
+            <div class="join_btn custom_btn ">가입</div>
+        </div>
+        <div class="logout_box">
+            <div class="username">사용자</div>
+            <div class="logout_btn">로그아웃</div>
+        </div>
+        <div class="search_box">
+            <form action="#" method="get">
+                <div class="search_select_box">
+                    <span>검색 대상</span>
+                    <ul class="search_select_list">
+                        <li>제목</li>
+                        <li>내용</li>
+                        <li>작성자</li>
+                    </ul>
+                </div>
+                <input type="search" name="search_window" class="search_window" placeholder="검색어">
+            </form>
+            <div class="search_btn custom_btn">검색</div>
+        </div>
+    </div>
+    <div class="header_box">
+        <h2>
+            Board
+        </h2>
+    </div>
+    <div class="contents_box">
+        <div class="contents_row_1">
+            <div class="contents_count">총 <span>10</span>건의 게시물</div>
+            <div class="write_btn custom_btn">글쓰기</div>
+        </div>
+        <div class="contents_row_2">
+            <div class="table_box">
+                <div class="tr">
+                    <div>번호</div>
+                    <div>제목</div>
+                    <div>작성자</div>
+                    <div>작성일</div>
+                </div>
+                <div class="tr">
+                    <div>1</div>
+                    <div>제목</div>
+                    <div>작성자</div>
+                    <div>작성일</div>
+                </div>
+                <div class="tr">
+                    <div>2</div>
+                    <div>제목</div>
+                    <div>작성자</div>
+                    <div>작성일</div>
+                </div>
+                <div class="tr">
+                    <div>3</div>
+                    <div>제목</div>
+                    <div>작성자</div>
+                    <div>작성일</div>
+                </div>
+            </div>
+        </div>
+        <div class="contents_row_3">
+            <div class="add_view_btn custom_btn">더보기</div>
+        </div>
+    </div>
+</div>
+
