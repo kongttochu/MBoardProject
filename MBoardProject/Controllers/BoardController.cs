@@ -13,18 +13,7 @@ namespace MBoardProject.Controllers
         // GET: Board
         public ActionResult BoardView()
         {
-            if(Session["Login"] == null)
-            {
-                LOGIN login = new LOGIN() {
-                    isLogin = false,
-                    USERID = "",
-                    USERNM = "",
-                    USERPW = ""
-                };
-                string jsonData = JsonConvert.SerializeObject(login);
-                Session["Login"] = jsonData;
-            }
-
+            ResetLoginInfo();
             ViewBag.Login = Session["Login"];
             return View();
         }
@@ -52,6 +41,8 @@ namespace MBoardProject.Controllers
 
         public ActionResult JoinView()
         {
+            ResetLoginInfo();
+            ViewBag.Login = Session["Login"];
             return View();
         }
 
@@ -65,17 +56,39 @@ namespace MBoardProject.Controllers
 
         public ActionResult CreateView()
         {
+            ResetLoginInfo();
+            ViewBag.Login = Session["Login"];
             return View();
         }
 
         public ActionResult ReadView()
         {
+            ResetLoginInfo();
+            ViewBag.Login = Session["Login"];
             return View();
         }
 
         public ActionResult EditView()
         {
+            ResetLoginInfo();
+            ViewBag.Login = Session["Login"];
             return View();
+        }
+
+        public void ResetLoginInfo()
+        {
+            if (Session["Login"] == null)
+            {
+                LOGIN login = new LOGIN()
+                {
+                    isLogin = false,
+                    USERID = "",
+                    USERNM = "",
+                    USERPW = ""
+                };
+                string jsonData = JsonConvert.SerializeObject(login);
+                Session["Login"] = jsonData;
+            }
         }
     }
 }

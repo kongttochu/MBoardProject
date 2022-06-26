@@ -1,51 +1,23 @@
-﻿
-
-$(function () {
-
-    init();
-})
-
-let init = function () {
-    $(".login_btn").on('click', function () {
-        if (!login.state) login.click();
-    });
-
-    $(".logout_btn").on('click', function () {
-        if (login.state) login.click();
-    });
-
-    $(".join_btn").on('click', function () {
-        if (login.state) {
-            alert("로그인 상태입니다. 로그아웃 후 회원가입이 가능합니다.");
-        }
-        else movepage("/Board/JoinView");
-    });
-
-    if (typeof(_login) != "undefined") {
-        login.state = _login.isLogin;
-        login.setLoginInfo(_login.USERID, _login.USERNM);
-    }
-    login.init();
-
-    header.title = _title;
-    header.init();
-}
-
-let header = {
-    title: "",
-    init: function () {
-        this.setTitleView(this.title);
-    },
-    setTitleView: function (title) {
-        $(".header_box>h2").val(title);
-    }
-}
-
-let login = {
+﻿let login = {
     userid: "",
     usernm: "",
     state: false,
     init: function () {
+        $(".login_btn").on('click', function () {
+            if (!login.state) login.click();
+        });
+
+        $(".logout_btn").on('click', function () {
+            if (login.state) login.click();
+        });
+
+        if (typeof (_login) != "undefined") {
+            login.state = _login.isLogin;
+            login.setLoginInfo(_login.USERID, _login.USERNM);
+        }
+        login.refresh();
+    },
+    refresh: function () {
         if (!this.state) this.logoutStateView();
         else this.loginStateView();
     },
@@ -91,7 +63,7 @@ let login = {
         if (json.isLogin) {
             this.state = true;
             this.setLoginInfo(json.USERID, json.USERNM);
-            this.init();
+            this.refresh();
         }
         else alert("아이디와 비밀번호가 일치하지 않습니다.");
     },
@@ -114,13 +86,13 @@ let login = {
         alert("로그아웃이 완료됐습니다.");
         this.state = false;
         this.setLoginInfo("", "");
-        this.init();
+        this.refresh();
     },
     loginStateView: function () {
 
         $(".login_box").hide();
 
-        $(".logout_box .username").val = this.usernm;
+        $(".username").val = this.usernm;
         $(".logout_box").show();
     },
     logoutStateView: function () {

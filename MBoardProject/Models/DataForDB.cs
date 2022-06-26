@@ -34,7 +34,9 @@ namespace MBoardProject.Models
             login.isLogin = false;
             while (data.Read())
             {
+                
                 login.USERNM = data["USERNM"].ToString();
+                login.GRADE = (int)data["GRADE"];
                 login.isLogin = true;
             }
             return login;

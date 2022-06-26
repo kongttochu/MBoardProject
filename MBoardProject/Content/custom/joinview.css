@@ -1,0 +1,25 @@
+﻿.join_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /*width: 100%;*/
+}
+    .join_box > * {
+        margin: 10px;
+    }
+
+    .join_box form {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    #join_form  > input{
+        margin-top: 10px;
+        width: 40%;
+        height: 30px;
+    }
+
+    .join_box .custom_btn{
+        width: 40%;
+    }
