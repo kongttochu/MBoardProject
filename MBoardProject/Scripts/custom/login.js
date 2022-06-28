@@ -1,4 +1,5 @@
 ﻿let login = {
+    idx: 0,
     userid: "",
     usernm: "",
     state: false,
@@ -13,7 +14,7 @@
 
         if (typeof (_login) != "undefined") {
             login.state = _login.isLogin;
-            login.setLoginInfo(_login.USERID, _login.USERNM);
+            login.setLoginInfo(_login.IDX, _login.USERID, _login.USERNM);
         }
         login.refresh();
     },
@@ -38,7 +39,8 @@
         $(".id_window").val(id);
         $(".pw_window").val(pw);
     },
-    setLoginInfo: function (id, nm) {
+    setLoginInfo: function (idx, id, nm) {
+        this.idx = idx;
         this.userid = id;
         this.usernm = nm;
     },
@@ -62,7 +64,7 @@
     receivLogin: function (json) {
         if (json.isLogin) {
             this.state = true;
-            this.setLoginInfo(json.USERID, json.USERNM);
+            this.setLoginInfo(json.IDX, json.USERID, json.USERNM);
             this.refresh();
         }
         else alert("아이디와 비밀번호가 일치하지 않습니다.");
@@ -92,7 +94,7 @@
 
         $(".login_box").hide();
 
-        $(".username").val = this.usernm;
+        $(".username").text(this.usernm);
         $(".logout_box").show();
     },
     logoutStateView: function () {

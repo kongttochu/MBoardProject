@@ -33,5 +33,47 @@ namespace MBoardProject.Models
         public bool USEYN { get; set; }
 
         //Dto
+        public List<FILE> files { get; set; }
+        public List<HttpPostedFileBase> fileDatas { get; set; }
+
+        public LOGIN login { get; set; }
+
+        public bool isSuccess { get; set; }
+    }
+
+    public class FILE
+    {
+        //Entity
+        public int IDX { get; set; }
+        public int FEEDIDX { get; set; }
+        public string FILENAME { get; set; }
+        public int FILESIZE { get; set; }
+        public string FILEPATH { get; set; }
+
+        //dto
+        public bool isSuccess { get; set; }
+    }
+
+    public class REPLY
+    {
+        //Entity
+        public int IDX { get; set; }
+        public int FEEDIDX { get; set; }
+        public string CONTENTS { get; set; }
+        public int PIDX { get; set; }
+
+        //dto
+        public bool isSuccess { get; set; }
+    }
+
+    public class LIKE
+    {
+        //Entity
+        public int IDX { get; set; }
+        public int FEEDIDX { get; set; }
+        public int USERIDX { get; set; }
+
+        //dto
+        public bool isSuccess { get; set; }
     }
 }

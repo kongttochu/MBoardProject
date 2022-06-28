@@ -5,6 +5,12 @@
 let init = function () {
 
     login.init();
+    if (login.state == true) {
+        alert("로그인 상태일 때는 회원 가입을 하실 수 없습니다. \n로그아웃 후 진행해 주세요.");
+        movepage("/Board/BoardView");
+    }
+
+    info.init();
 
     header.title = _title;
     header.init();
@@ -45,7 +51,7 @@ let join = {
             }
         });
     },
-    receiveJoin: function () {
+    receiveJoin: function (json) {
         if (json.isJoin) {
             alert("가입을 성공했습니다.");
             movepage("/Board/BoardView");

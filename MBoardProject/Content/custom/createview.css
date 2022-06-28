@@ -1,0 +1,26 @@
+﻿.create_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /*width: 100%;*/
+}
+
+    .create_box > * {
+        margin: 10px;
+    }
+
+    .create_box form {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .create_box > input {
+        margin-top: 10px;
+        width: 40%;
+        height: 30px;
+    }
+
+    .create_box .custom_btn {
+        width: 40%;
+    }

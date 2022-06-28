@@ -126,6 +126,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ConvertToUseData.cs" />
+    <Compile Include="Models\DataForFile.cs" />
     <Compile Include="Models\dbconn.cs" />
     <Compile Include="Models\MainClass.cs" />
     <Compile Include="Models\DataForDB.cs" />
@@ -137,6 +138,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\custom\boardview.css" />
+    <Content Include="Content\custom\createview.css" />
     <Content Include="Content\custom\joinview.css" />
     <Content Include="Content\custom\layout.css" />
     <Content Include="favicon.ico" />
@@ -148,6 +150,7 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\custom\boardview.js" />
     <Content Include="Scripts\custom\common.js" />
+    <Content Include="Scripts\custom\createview.js" />
     <Content Include="Scripts\custom\joinview.js" />
     <Content Include="Scripts\custom\layout.js" />
     <Content Include="Scripts\custom\login.js" />

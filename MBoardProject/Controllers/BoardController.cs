@@ -61,6 +61,16 @@ namespace MBoardProject.Controllers
             return View();
         }
 
+        [HttpPost]
+        public JsonResult FeedCreate(FEED feed)
+        {
+            ConvertToUseData data = new ConvertToUseData();
+            feed = data.FeedCreate(feed);
+            string jsonData = JsonConvert.SerializeObject(new { isSuccess = feed.isSuccess });
+            //string jsonData = JsonConvert.SerializeObject(data.FeedCreate(feed)); // 타임아웃 에러 발생
+            return Json(jsonData);
+        }
+
         public ActionResult ReadView()
         {
             ResetLoginInfo();
