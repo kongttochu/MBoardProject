@@ -6,6 +6,8 @@
 <link href="~/Content/custom/layout.css" rel="stylesheet" />
 <link href="~/Content/custom/joinview.css" rel="stylesheet" />
 
+
+
 <script>
     let _login = JSON.parse('@Html.Raw(ViewBag.Login)');
     let _title = '@Html.Raw(ViewBag.Title)';
@@ -18,18 +20,24 @@
 
 <div id="wrap">
     <div class="info_box">
-        <div class="login_box">
-            <form id="form1" action="/Board/UserLogin" enctype="multipart/form-data" method="post">
-                <input type="text" name="USERID" class="id_window" placeholder="아이디">
-                <input type="password" name="USERPW" class="pw_window" placeholder="비밀번호">
-            </form>
-            <div class="login_btn custom_btn ">로그인</div>
-            <div class="join_btn custom_btn ">가입</div>
-        </div>
-        <div class="logout_box">
-            <div class="username">사용자</div>
-            <div class="logout_btn custom_btn">로그아웃</div>
-        </div>
+        @if (ViewBag.UserId == "")
+        {
+            <div class="login_box">
+                <form id="form1" action="/Board/UserLogin" enctype="multipart/form-data" method="post">
+                    <input type="text" name="USERID" class="id_window" placeholder="아이디">
+                    <input type="password" name="USERPW" class="pw_window" placeholder="비밀번호">
+                </form>
+                <div class="login_btn custom_btn ">로그인</div>
+                <div class="join_btn custom_btn ">가입</div>
+            </div>
+        }
+        else
+        {
+            <div class="logout_box">
+                <div class="username">@ViewBag.Usernm</div>
+                <div class="logout_btn custom_btn">로그아웃</div>
+            </div>
+        }
         <div class="btn_box">
             <div class="home_btn custom_btn">홈</div>
         </div>

@@ -23,7 +23,7 @@ namespace MBoardProject.Controllers
         {
             ConvertToUseData data = new ConvertToUseData();
             string jsonData = JsonConvert.SerializeObject(data.UserLogin(login));
-            if(login.isLogin) Session["Login"] = jsonData;
+            if (login.isLogin) Session["Login"] = jsonData;
             return Json(jsonData);
         }
 
@@ -35,7 +35,7 @@ namespace MBoardProject.Controllers
             login.USERID = "";
             login.USERPW = "";
             string jsonData = JsonConvert.SerializeObject(login);
-            if(!login.isLogin) Session["Login"] = jsonData;
+            if (!login.isLogin) Session["Login"] = jsonData;
             return Json(jsonData);
         }
 

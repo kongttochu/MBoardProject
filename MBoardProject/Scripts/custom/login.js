@@ -65,7 +65,9 @@
         if (json.isLogin) {
             this.state = true;
             this.setLoginInfo(json.IDX, json.USERID, json.USERNM);
-            this.refresh();
+            //this.refresh();
+            let befourl = "로그인페이지이전 URL";
+            window.location.href = befourl;
         }
         else alert("아이디와 비밀번호가 일치하지 않습니다.");
     },

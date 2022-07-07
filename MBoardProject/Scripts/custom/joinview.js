@@ -26,20 +26,15 @@ let join = {
         });
     },
     click: function () {
-        let data = this.getInput();
-        if (data.USERNM == '' || data.USERID == '' || data.USERPW == '') {
-            alert('모두 입력하세요.');
-        }
-        else {
-            this.sendJoin();
-        }
+        if (this.validation()) this.sendJoin();
+        else alert('모두 입력하세요.');
     },
     sendJoin: function () {
         let that = this;
         $.ajax({
             type: "POST",
             url: "/Board/UserJoin",
-            data: this.getInput(),
+            data: $("#form_join").serialize(),
             success: function (res) {
                 console.log("success");
                 var json = JSON.parse(res);
@@ -53,8 +48,8 @@ let join = {
     },
     receiveJoin: function (json) {
         if (json.isJoin) {
-            alert("가입을 성공했습니다.");
-            movepage("/Board/BoardView");
+            //alert("가입을 성공했습니다.");
+            movepage("/Board/BoardView", "가입을 성공했습니다.");
         }
         else {
             if (json.isExist) alert("이미 존재하는 아이디거나 사용자 이름입니다.");
@@ -62,11 +57,18 @@ let join = {
         }
     },
     getInput: function () {
-        let data = {
-            USERNM: $(".name_window").val(),
-            USERID: $(".id_window").val(),
-            USERPW: $(".pw_window").val()
+        return {
+            USERNM: $("#form_join .name_window").val(),
+            USERID: $("#form_join .id_window").val(),
+            USERPW: $("#form_join .pw_window").val()
         };
-        return data;
+    },
+    validation: function () {
+        if ($("#form_join .name_window").val() == ''
+            || $("#form_join .id_window").val() == ''
+            || $("#form_join .pw_window").val() == '') {
+            return true;
+        }
+        else false;
     }
 }
